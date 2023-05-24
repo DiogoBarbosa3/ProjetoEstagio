@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		DB394F7B2A165D61008FF969 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F7A2A165D61008FF969 /* AppDelegate.swift */; };
 		DB394F7D2A165D61008FF969 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F7C2A165D61008FF969 /* SceneDelegate.swift */; };
-		DB394F7F2A165D61008FF969 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F7E2A165D61008FF969 /* ViewController.swift */; };
+		DB394F7F2A165D61008FF969 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F7E2A165D61008FF969 /* LoginViewController.swift */; };
 		DB394F822A165D61008FF969 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB394F802A165D61008FF969 /* Main.storyboard */; };
 		DB394F842A165D62008FF969 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB394F832A165D62008FF969 /* Assets.xcassets */; };
 		DB394F872A165D62008FF969 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB394F852A165D62008FF969 /* LaunchScreen.storyboard */; };
 		DB394F922A165D63008FF969 /* DrinkShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F912A165D63008FF969 /* DrinkShopTests.swift */; };
 		DB394F9C2A165D63008FF969 /* DrinkShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F9B2A165D63008FF969 /* DrinkShopUITests.swift */; };
 		DB394F9E2A165D63008FF969 /* DrinkShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F9D2A165D63008FF969 /* DrinkShopUITestsLaunchTests.swift */; };
+		DBAAD9D02A1D124300C19DBD /* LogInComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAD9CF2A1D124300C19DBD /* LogInComponent.swift */; };
+		DBAAD9D22A1D126900C19DBD /* LogInComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBAAD9D12A1D126900C19DBD /* LogInComponent.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 		DB394F772A165D61008FF969 /* DrinkShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB394F7A2A165D61008FF969 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB394F7C2A165D61008FF969 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB394F7E2A165D61008FF969 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB394F7E2A165D61008FF969 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB394F812A165D61008FF969 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB394F832A165D62008FF969 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB394F862A165D62008FF969 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		DB394F972A165D63008FF969 /* DrinkShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB394F9B2A165D63008FF969 /* DrinkShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkShopUITests.swift; sourceTree = "<group>"; };
 		DB394F9D2A165D63008FF969 /* DrinkShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DBAAD9CF2A1D124300C19DBD /* LogInComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInComponent.swift; sourceTree = "<group>"; };
+		DBAAD9D12A1D126900C19DBD /* LogInComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInComponent.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,10 @@
 		DB394F792A165D61008FF969 /* DrinkShop */ = {
 			isa = PBXGroup;
 			children = (
+				DBAAD9CC2A1D0E0C00C19DBD /* CustomComponents */,
 				DB394F7A2A165D61008FF969 /* AppDelegate.swift */,
 				DB394F7C2A165D61008FF969 /* SceneDelegate.swift */,
-				DB394F7E2A165D61008FF969 /* ViewController.swift */,
+				DB394F7E2A165D61008FF969 /* LoginViewController.swift */,
 				DB394F802A165D61008FF969 /* Main.storyboard */,
 				DB394F832A165D62008FF969 /* Assets.xcassets */,
 				DB394F852A165D62008FF969 /* LaunchScreen.storyboard */,
@@ -125,6 +130,15 @@
 				DB394F9D2A165D63008FF969 /* DrinkShopUITestsLaunchTests.swift */,
 			);
 			path = DrinkShopUITests;
+			sourceTree = "<group>";
+		};
+		DBAAD9CC2A1D0E0C00C19DBD /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				DBAAD9CF2A1D124300C19DBD /* LogInComponent.swift */,
+				DBAAD9D12A1D126900C19DBD /* LogInComponent.xib */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +248,7 @@
 				DB394F872A165D62008FF969 /* LaunchScreen.storyboard in Resources */,
 				DB394F842A165D62008FF969 /* Assets.xcassets in Resources */,
 				DB394F822A165D61008FF969 /* Main.storyboard in Resources */,
+				DBAAD9D22A1D126900C19DBD /* LogInComponent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB394F7F2A165D61008FF969 /* ViewController.swift in Sources */,
+				DB394F7F2A165D61008FF969 /* LoginViewController.swift in Sources */,
 				DB394F7B2A165D61008FF969 /* AppDelegate.swift in Sources */,
 				DB394F7D2A165D61008FF969 /* SceneDelegate.swift in Sources */,
+				DBAAD9D02A1D124300C19DBD /* LogInComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
