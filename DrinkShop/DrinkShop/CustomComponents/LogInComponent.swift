@@ -32,10 +32,6 @@ class LogInComponent: UIView {
             guard let view = nib.instantiate(withOwner: self, options: nil).first as?
                                 UIView else {fatalError("Unable to convert nib")}
 
-            view.frame = bounds
-            view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-
             addSubview(view)
 
         }
