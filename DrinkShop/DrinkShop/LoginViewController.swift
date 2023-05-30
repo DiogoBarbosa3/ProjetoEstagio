@@ -27,6 +27,9 @@ class LoginViewController: UIViewController {
         googleLogin.layer.cornerRadius = 10.0
         googleLogin.layer.masksToBounds = true
         
+        
+        
+        
         if let image = UIImage(named: "google_logo") {
             
             googleLogin.configureImageAndText(image: image, text: "Sign up with Google")
@@ -96,6 +99,8 @@ class LoginViewController: UIViewController {
                     self?.updateMessage(with: Profile.current?.name)
                 }
             }
+            
+            
         }
     }
     
@@ -131,6 +136,8 @@ class LoginViewController: UIViewController {
     
     
     
+    
+    
     private func updateMessage(with name: String?) {
         // 2
         guard let name = name else {
@@ -140,6 +147,9 @@ class LoginViewController: UIViewController {
         
         // User already logged in
         logInMessage.text = "\(name)!"
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

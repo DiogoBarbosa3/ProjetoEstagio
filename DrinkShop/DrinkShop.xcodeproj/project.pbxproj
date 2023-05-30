@@ -19,8 +19,10 @@
 		DB394F922A165D63008FF969 /* DrinkShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F912A165D63008FF969 /* DrinkShopTests.swift */; };
 		DB394F9C2A165D63008FF969 /* DrinkShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F9B2A165D63008FF969 /* DrinkShopUITests.swift */; };
 		DB394F9E2A165D63008FF969 /* DrinkShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394F9D2A165D63008FF969 /* DrinkShopUITestsLaunchTests.swift */; };
+		DB97E5B92A264F640087F71C /* WineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB97E5B82A264F640087F71C /* WineViewController.swift */; };
 		DBAAD9D02A1D124300C19DBD /* LogInComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAD9CF2A1D124300C19DBD /* LogInComponent.swift */; };
 		DBAAD9D22A1D126900C19DBD /* LogInComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBAAD9D12A1D126900C19DBD /* LogInComponent.xib */; };
+		DBC4B4AE2A2616BC004AEBD3 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC4B4AD2A2616BC004AEBD3 /* BeerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +64,10 @@
 		DB394F972A165D63008FF969 /* DrinkShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB394F9B2A165D63008FF969 /* DrinkShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkShopUITests.swift; sourceTree = "<group>"; };
 		DB394F9D2A165D63008FF969 /* DrinkShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB97E5B82A264F640087F71C /* WineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineViewController.swift; sourceTree = "<group>"; };
 		DBAAD9CF2A1D124300C19DBD /* LogInComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInComponent.swift; sourceTree = "<group>"; };
 		DBAAD9D12A1D126900C19DBD /* LogInComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInComponent.xib; sourceTree = "<group>"; };
+		DBC4B4AD2A2616BC004AEBD3 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		DBF082F22219C191D033EE5E /* Pods-DrinkShopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkShopTests.release.xcconfig"; path = "Target Support Files/Pods-DrinkShopTests/Pods-DrinkShopTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +155,8 @@
 				DB394F832A165D62008FF969 /* Assets.xcassets */,
 				DB394F852A165D62008FF969 /* LaunchScreen.storyboard */,
 				DB394F882A165D62008FF969 /* Info.plist */,
+				DBC4B4AD2A2616BC004AEBD3 /* BeerViewController.swift */,
+				DB97E5B82A264F640087F71C /* WineViewController.swift */,
 			);
 			path = DrinkShop;
 			sourceTree = "<group>";
@@ -459,6 +465,8 @@
 			files = (
 				DB394F7F2A165D61008FF969 /* LoginViewController.swift in Sources */,
 				DB394F7B2A165D61008FF969 /* AppDelegate.swift in Sources */,
+				DBC4B4AE2A2616BC004AEBD3 /* BeerViewController.swift in Sources */,
+				DB97E5B92A264F640087F71C /* WineViewController.swift in Sources */,
 				DB394F7D2A165D61008FF969 /* SceneDelegate.swift in Sources */,
 				DBAAD9D02A1D124300C19DBD /* LogInComponent.swift in Sources */,
 			);
