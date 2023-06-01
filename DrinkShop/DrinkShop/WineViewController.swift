@@ -10,10 +10,9 @@ import UIKit
 class WineViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+            super.viewDidLoad()
 
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.hidesBackButton = true
-    }
-
+            // Hide the back button
+            self.navigationController?.navigationBar.isHidden = true
+        }
 }

@@ -7,19 +7,17 @@
 
 import UIKit
 
-class BeerViewController: UIViewController {
-
+class BeerViewController: UIViewController{
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.hidesBackButton = true
         
-        
+        // Hide the back button
+        self.navigationController?.navigationBar.isHidden = true
         
     }
     
     
-    
-
 }

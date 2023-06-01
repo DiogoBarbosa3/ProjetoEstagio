@@ -140,6 +140,8 @@ class LoginViewController: UIViewController {
     
     private func updateMessage(with name: String?) {
         // 2
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        
         guard let name = name else {
             logInMessage.text = "Login"
             return
@@ -148,8 +150,9 @@ class LoginViewController: UIViewController {
         // User already logged in
         logInMessage.text = "\(name)!"
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     
