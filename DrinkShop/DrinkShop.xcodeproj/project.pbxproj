@@ -25,6 +25,9 @@
 		DBAAD9D22A1D126900C19DBD /* LogInComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBAAD9D12A1D126900C19DBD /* LogInComponent.xib */; };
 		DBC4B4AE2A2616BC004AEBD3 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC4B4AD2A2616BC004AEBD3 /* BeerViewController.swift */; };
 		DBC7D67C2A2E4FC100A064D5 /* TabBarWithCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7D67B2A2E4FC100A064D5 /* TabBarWithCorners.swift */; };
+		DBCB99D12A2EA99E006FBACC /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCB99D02A2EA99E006FBACC /* Cart.swift */; };
+		DBD75E162A2F546400A70E13 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD75E152A2F546400A70E13 /* TabbarController.swift */; };
+		DBD75E192A2FA14900A70E13 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD75E182A2FA14900A70E13 /* CartViewController.swift */; };
 		DBDB10DF2A2A5B6A002C9E8A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDB10DE2A2A5B6A002C9E8A /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		DBAAD9D12A1D126900C19DBD /* LogInComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInComponent.xib; sourceTree = "<group>"; };
 		DBC4B4AD2A2616BC004AEBD3 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		DBC7D67B2A2E4FC100A064D5 /* TabBarWithCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarWithCorners.swift; sourceTree = "<group>"; };
+		DBCB99D02A2EA99E006FBACC /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		DBD75E152A2F546400A70E13 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		DBD75E182A2FA14900A70E13 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DBDB10DE2A2A5B6A002C9E8A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DBF082F22219C191D033EE5E /* Pods-DrinkShopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkShopTests.release.xcconfig"; path = "Target Support Files/Pods-DrinkShopTests/Pods-DrinkShopTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,17 +159,16 @@
 		DB394F792A165D61008FF969 /* DrinkShop */ = {
 			isa = PBXGroup;
 			children = (
+				DBD75E172A2F8E0A00A70E13 /* ViewControllers */,
 				DB66DC322A28E5A70042F6F7 /* Model */,
 				DBAAD9CC2A1D0E0C00C19DBD /* CustomComponents */,
 				DB394F7A2A165D61008FF969 /* AppDelegate.swift */,
 				DB394F7C2A165D61008FF969 /* SceneDelegate.swift */,
-				DB394F7E2A165D61008FF969 /* LoginViewController.swift */,
 				DB394F802A165D61008FF969 /* Main.storyboard */,
 				DB394F832A165D62008FF969 /* Assets.xcassets */,
 				DB394F852A165D62008FF969 /* LaunchScreen.storyboard */,
 				DB394F882A165D62008FF969 /* Info.plist */,
-				DBC4B4AD2A2616BC004AEBD3 /* BeerViewController.swift */,
-				DB97E5B82A264F640087F71C /* WineViewController.swift */,
+				DBD75E152A2F546400A70E13 /* TabbarController.swift */,
 			);
 			path = DrinkShop;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				DB66DC332A28E5D50042F6F7 /* Beer.swift */,
+				DBCB99D02A2EA99E006FBACC /* Cart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +208,17 @@
 				DBC7D67B2A2E4FC100A064D5 /* TabBarWithCorners.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		DBD75E172A2F8E0A00A70E13 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB97E5B82A264F640087F71C /* WineViewController.swift */,
+				DBC4B4AD2A2616BC004AEBD3 /* BeerViewController.swift */,
+				DB394F7E2A165D61008FF969 /* LoginViewController.swift */,
+				DBD75E182A2FA14900A70E13 /* CartViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,11 +499,14 @@
 			files = (
 				DB394F7F2A165D61008FF969 /* LoginViewController.swift in Sources */,
 				DBDB10DF2A2A5B6A002C9E8A /* TableViewCell.swift in Sources */,
+				DBD75E162A2F546400A70E13 /* TabbarController.swift in Sources */,
 				DB394F7B2A165D61008FF969 /* AppDelegate.swift in Sources */,
+				DBD75E192A2FA14900A70E13 /* CartViewController.swift in Sources */,
 				DBC4B4AE2A2616BC004AEBD3 /* BeerViewController.swift in Sources */,
 				DB97E5B92A264F640087F71C /* WineViewController.swift in Sources */,
 				DB394F7D2A165D61008FF969 /* SceneDelegate.swift in Sources */,
 				DBC7D67C2A2E4FC100A064D5 /* TabBarWithCorners.swift in Sources */,
+				DBCB99D12A2EA99E006FBACC /* Cart.swift in Sources */,
 				DB66DC342A28E5D50042F6F7 /* Beer.swift in Sources */,
 				DBAAD9D02A1D124300C19DBD /* LogInComponent.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BeerInfo: Codable {
+class BeerInfo: Codable, Hashable {
     
     let id: Int
     let name, tagline, firstBrewed, beerDescription: String?
@@ -19,8 +19,6 @@ struct BeerInfo: Codable {
     let ebc: Int?
     let srm, ph: Double?
     let attenuationLevel: Double?
-    
-    
     
     
     enum CodingKeys: String, CodingKey {
@@ -35,6 +33,14 @@ struct BeerInfo: Codable {
         case ebc, srm, ph
         case attenuationLevel = "attenuation_level"
         
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    
+    static func == (first: BeerInfo, second: BeerInfo) -> Bool {
+        return first.id == second.id
     }
     
 }
