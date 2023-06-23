@@ -11,16 +11,16 @@ class Cart{
     
     var beersToBuy = [BeerInfo:Int]()
     
-    func addBeer(beer: BeerInfo,quantity: Int) {
+    func addBeer(beer: BeerInfo) {
         
         
         if beersToBuy[beer] != nil {
             
-            beersToBuy[beer] = beersToBuy[beer]! + quantity
+            beersToBuy[beer] = beersToBuy[beer]! + 1
             return
             
         } else {
-            beersToBuy[beer] = quantity
+            beersToBuy[beer] = 1
             
             return
         }
@@ -29,10 +29,10 @@ class Cart{
         
     }
     
-    func removeBeer(beer: BeerInfo,quantity: Int){
+    func removeBeer(beer: BeerInfo){
         
         if beersToBuy[beer] != nil && beersToBuy[beer]! > 1 {
-            beersToBuy[beer] = beersToBuy[beer]! - quantity
+            beersToBuy[beer] = beersToBuy[beer]! - 1
             return
             
         }
@@ -40,8 +40,11 @@ class Cart{
             beersToBuy.removeValue(forKey: beer)
             return
         }
-        
-    return}
+    }
+    
+    func beersList() -> [BeerInfo] {
+        return Array(self.beersToBuy.keys)
+    }
     
 }
 

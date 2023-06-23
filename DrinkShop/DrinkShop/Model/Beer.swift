@@ -19,6 +19,7 @@ class BeerInfo: Codable, Hashable {
     let ebc: Int?
     let srm, ph: Double?
     let attenuationLevel: Double?
+    let brewers_tips: String?
     
     
     enum CodingKeys: String, CodingKey {
@@ -32,6 +33,7 @@ class BeerInfo: Codable, Hashable {
         case targetOg = "target_og"
         case ebc, srm, ph
         case attenuationLevel = "attenuation_level"
+        case brewers_tips
         
     }
     

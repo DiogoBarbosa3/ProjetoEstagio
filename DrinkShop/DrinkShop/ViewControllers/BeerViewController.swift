@@ -21,11 +21,6 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide the back button
-        self.navigationController?.navigationBar.isHidden = true
-        
-        
-        
         self.tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
@@ -50,6 +45,12 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
         cart = tabbar.cart
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+        self.navigationController?.navigationBar.isHidden = true
+        }
     
     private func retrieveData(completion: @escaping (Result<[BeerInfo], Error>) -> Void) {
         let urlString = "https://api.punkapi.com/v2/beers"
@@ -87,11 +88,10 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rate = self.beers[indexPath.section]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BeersCustomCell", for: indexPath) as! BeersTableViewCell
         
         cell.ImageView.load(urlString: rate.imageURL!)
         cell.Label.text = rate.name
-        print(rate.id)
         
         
         
@@ -108,7 +108,7 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addAction = UIContextualAction(style: .normal, title: "Add 1 to Cart") { (action, view, completionHandler) in
             
-            self.cart.addBeer(beer: self.beers[indexPath.section], quantity: 1)
+            self.cart.addBeer(beer: self.beers[indexPath.section])
             
         }
         addAction.backgroundColor = .green // Customize the background color of the action button
@@ -120,32 +120,27 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
         return configuration
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "BeerDetailsViewController") as? BeerDetailsViewController {
+            let rate = self.beers[indexPath.section]
+            vc.topTitle = rate.name
+            vc.auxBeerImage.load(urlString: rate.imageURL!)
+            vc.auxBeerName = rate.name!
+            vc.auxPercentAlcool = String(rate.abv!)
+            vc.auxCervejeiroTips = rate.brewers_tips!
+            vc.auxDescricao = rate.beerDescription!
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 
-var imageCache = NSCache<AnyObject,AnyObject>()
 extension UIImageView {
     func load(urlString: String) {
-        
-        if let image = imageCache.object(forKey: urlString as NSString) as? UIImage {
-            self.image = image
-            return
-        }
-        
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        imageCache.setObject(image, forKey: urlString as NSString)
-                        self?.image = image
-                    }
-                }
-            }
+        ImageLoader.loadImage(urlString: urlString) { [weak self] image in
+            self?.image = image
+            
         }
     }
 }
