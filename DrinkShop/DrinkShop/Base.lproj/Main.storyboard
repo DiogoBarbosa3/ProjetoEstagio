@@ -153,8 +153,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0Ia-KF-WbX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hjh-LV-8aq" id="BZy-UY-GtX"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dIN-rJ-LOc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" name="AccentColor"/>
@@ -202,14 +209,18 @@
                         <viewLayoutGuide key="safeArea" id="JXz-2a-gZK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dIN-rJ-LOc" firstAttribute="leading" secondItem="JXz-2a-gZK" secondAttribute="leading" id="29g-xM-gw9"/>
-                            <constraint firstItem="dIN-rJ-LOc" firstAttribute="top" secondItem="JXz-2a-gZK" secondAttribute="top" id="MDd-Wo-JgS"/>
-                            <constraint firstItem="dIN-rJ-LOc" firstAttribute="bottom" secondItem="N0D-GB-1ek" secondAttribute="bottom" id="QDy-pW-8NN"/>
-                            <constraint firstItem="dIN-rJ-LOc" firstAttribute="trailing" secondItem="JXz-2a-gZK" secondAttribute="trailing" id="gai-g8-dEO"/>
+                            <constraint firstItem="0Ia-KF-WbX" firstAttribute="top" secondItem="JXz-2a-gZK" secondAttribute="top" id="7La-Ew-Pp0"/>
+                            <constraint firstItem="0Ia-KF-WbX" firstAttribute="leading" secondItem="JXz-2a-gZK" secondAttribute="leading" id="8nb-Zb-q7M"/>
+                            <constraint firstAttribute="bottom" secondItem="dIN-rJ-LOc" secondAttribute="bottom" id="9Fw-ib-Vts"/>
+                            <constraint firstItem="dIN-rJ-LOc" firstAttribute="leading" secondItem="JXz-2a-gZK" secondAttribute="leading" id="9R0-VJ-h9w"/>
+                            <constraint firstItem="dIN-rJ-LOc" firstAttribute="trailing" secondItem="JXz-2a-gZK" secondAttribute="trailing" id="VJQ-WS-Nee"/>
+                            <constraint firstItem="0Ia-KF-WbX" firstAttribute="trailing" secondItem="JXz-2a-gZK" secondAttribute="trailing" id="qdJ-Tu-Q9g"/>
+                            <constraint firstItem="dIN-rJ-LOc" firstAttribute="top" secondItem="0Ia-KF-WbX" secondAttribute="bottom" id="uXE-TF-HeF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Beers" image="BeerTabBarIcon" id="8Wm-df-Lec"/>
                     <connections>
+                        <outlet property="searchBar" destination="0Ia-KF-WbX" id="aY8-WN-f5Y"/>
                         <outlet property="tableView" destination="dIN-rJ-LOc" id="c85-u1-Nbq"/>
                     </connections>
                 </viewController>

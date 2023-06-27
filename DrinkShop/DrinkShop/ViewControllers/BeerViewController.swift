@@ -7,11 +7,13 @@
 
 import UIKit
 
-class BeerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class BeerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var beers: [BeerInfo] = []
+    var currentBeers: [BeerInfo] = []
     var cart: Cart = Cart()
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,6 +26,7 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
         retrieveData { result in
             switch result {
@@ -31,7 +34,9 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
                 DispatchQueue.main.async {
                     
                     self.beers = cellInfo
+                    self.currentBeers = self.beers
                     self.tableView.reloadData()
+                   
                     
                 }
             case .failure(let error):
@@ -87,7 +92,7 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rate = self.beers[indexPath.section]
+        let rate = self.currentBeers[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeersCustomCell", for: indexPath) as! BeersTableViewCell
         
         cell.ImageView.load(urlString: rate.imageURL!)
@@ -98,7 +103,7 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell}
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return beers.count
+        return currentBeers.count
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -106,17 +111,20 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let addAction = UIContextualAction(style: .normal, title: "Add 1 to Cart") { (action, view, completionHandler) in
+        let addAction = UIContextualAction(style: .normal, title: "") { (action, view, completionHandler) in
             
             self.cart.addBeer(beer: self.beers[indexPath.section])
             
         }
         addAction.backgroundColor = .green // Customize the background color of the action button
+        let starImage = UIImage(named: "CartTabBarIcon")
+        addAction.image = starImage
         
         
         
         
         let configuration = UISwipeActionsConfiguration(actions: [addAction])
+        configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
     
@@ -133,6 +141,21 @@ class BeerViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+         
+         guard !searchText.isEmpty else { currentBeers = beers;
+             tableView.reloadData()
+             return }
+         
+         currentBeers = beers.filter({ beer in
+             return beer.name!.lowercased().hasPrefix(searchText.lowercased())
+         })
+         tableView.reloadData()
+     }
+  
+    
+
 }
 
 
