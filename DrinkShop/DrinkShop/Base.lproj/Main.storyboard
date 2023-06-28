@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="DrinkShop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="DrinkShop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,18 +132,36 @@
         <!--Profile-->
         <scene sceneID="dBO-gq-I5D">
             <objects>
-                <viewController id="lhx-cU-PqA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogOutViewController" id="lhx-cU-PqA" customClass="LogOutViewController" customModule="DrinkShop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILM-a7-qXO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcz-ZX-aLT">
+                                <rect key="frame" x="20" y="262" width="335" height="65"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                                    <fontDescription key="titleFontDescription" name="Didot-Bold" family="Didot" pointSize="40"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kgC-jH-h7D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pcz-ZX-aLT" firstAttribute="top" relation="lessThanOrEqual" secondItem="kgC-jH-h7D" secondAttribute="top" constant="292" id="3Ps-qb-PNm"/>
+                            <constraint firstItem="Pcz-ZX-aLT" firstAttribute="leading" secondItem="kgC-jH-h7D" secondAttribute="leading" constant="20" id="AGJ-oR-51b"/>
+                            <constraint firstItem="kgC-jH-h7D" firstAttribute="bottom" secondItem="Pcz-ZX-aLT" secondAttribute="bottom" constant="291" id="Zgq-mP-PtD"/>
+                            <constraint firstItem="kgC-jH-h7D" firstAttribute="trailing" secondItem="Pcz-ZX-aLT" secondAttribute="trailing" constant="20" id="kAi-qf-qzV"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabBarIcon" id="Tqx-La-Zks"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="Pcz-ZX-aLT" id="KQg-YO-vxR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pd0-hy-agy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2958" y="919"/>
+            <point key="canvasLocation" x="2957.5999999999999" y="918.89055472263874"/>
         </scene>
         <!--Beers-->
         <scene sceneID="oOm-dz-sn3">
@@ -465,6 +483,9 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
