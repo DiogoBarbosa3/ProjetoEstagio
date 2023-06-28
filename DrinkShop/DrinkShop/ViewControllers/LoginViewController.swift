@@ -48,84 +48,55 @@ class LoginViewController: UIViewController {
         updateMessage(with: GIDSignIn.sharedInstance()?.currentUser?.profile.givenName)
         
         
-        
     }
     
     @objc func didTapViewFacebookButton(_ sender: Any) {
         
-        if let _ = GIDSignIn.sharedInstance()?.currentUser?.profile.name {
-            logInMessage.text = "Log Out From Google!"
-            return
-        }
-        
         // 1
         let loginManager = LoginManager()
         
+        // Access token not available -- user already logged out
+        // Perform log in
         
-        
-        if let _ = AccessToken.current {
-            // Access token available -- user already logged in
-            // Perform log out
+        // 3
+        loginManager.logIn(permissions: [], from: self) { [weak self] (result, error) in
             
-            // 2
-            loginManager.logOut()
-            updateMessage(with: nil)
+            // 4
+            // Check for error
+            guard error == nil else {
+                // Error occurred
+                print(error!.localizedDescription)
+                return
+            }
             
-        } else {
-            // Access token not available -- user already logged out
-            // Perform log in
-            
-            // 3
-            loginManager.logIn(permissions: [], from: self) { [weak self] (result, error) in
-                
-                // 4
-                // Check for error
-                guard error == nil else {
-                    // Error occurred
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                // 5
-                // Check for cancel
-                guard let result = result, !result.isCancelled else {
-                    print("User cancelled login")
-                    return
-                }
-                
-                
-                // 7
-                Profile.loadCurrentProfile { (profile, error) in
-                    self?.updateMessage(with: Profile.current?.name)
-                }
+            // 5
+            // Check for cancel
+            guard let result = result, !result.isCancelled else {
+                print("User cancelled login")
+                return
             }
             
             
+            // 7
+            Profile.loadCurrentProfile { (profile, error) in
+                self?.updateMessage(with: Profile.current?.name)
+            }
         }
+        
+        
+        
     }
     
     @objc func didTapViewGoogleButton(_ sender: Any) {
         
-        if let _ = Profile.current?.name {
-            logInMessage.text = "Log Out From Facebook!"
-            return
-        }
+        GIDSignIn.sharedInstance()?.signIn()
         
-        if let _ = GIDSignIn.sharedInstance()?.currentUser {
-            
-            GIDSignIn.sharedInstance()?.signOut()
-            updateMessage(with: nil)
-            
-        }else{
-            
-            GIDSignIn.sharedInstance()?.signIn()
-            
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(userDidSignInGoogle(_:)),
-                                                   name: .signInGoogleCompleted,
-                                                   object: nil)
-            
-        }
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(userDidSignInGoogle(_:)),
+                                               name: .signInGoogleCompleted,
+                                               object: nil)
+        
+        
         
     }
     
@@ -140,7 +111,6 @@ class LoginViewController: UIViewController {
     
     private func updateMessage(with name: String?) {
         // 2
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabbarController") as! UITabBarController
         
         guard let name = name else {
             logInMessage.text = "Login"
@@ -150,6 +120,17 @@ class LoginViewController: UIViewController {
         // User already logged in
         logInMessage.text = "\(name)!"
         
+        if let navigationController = self.navigationController {
+            // Check if the TabBarController is already on the navigation stack
+            for viewController in navigationController.viewControllers {
+                if viewController is UITabBarController {
+                    navigationController.popToViewController(viewController, animated: true)
+                    return
+                }
+            }
+        }
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabbarController") as! UITabBarController
         
         self.navigationController?.pushViewController(vc, animated: true)
         

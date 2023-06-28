@@ -120,8 +120,22 @@
                     <view key="view" contentMode="scaleToFill" id="NYM-Th-alZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOB-k8-QAM">
+                                <rect key="frame" x="5" y="297" width="365" height="76"/>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FFX-Xm-ctK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YOB-k8-QAM" firstAttribute="leading" secondItem="FFX-Xm-ctK" secondAttribute="leading" constant="5" id="25B-cC-9kS"/>
+                            <constraint firstItem="YOB-k8-QAM" firstAttribute="top" secondItem="FFX-Xm-ctK" secondAttribute="top" constant="297" id="8z7-4I-y0n"/>
+                            <constraint firstItem="FFX-Xm-ctK" firstAttribute="bottom" secondItem="YOB-k8-QAM" secondAttribute="bottom" constant="245" id="R76-hI-E64"/>
+                            <constraint firstItem="FFX-Xm-ctK" firstAttribute="trailing" secondItem="YOB-k8-QAM" secondAttribute="trailing" constant="5" id="d9b-WC-iE6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Wine" image="WineTabBarIcon" id="Z2h-Nb-FH3"/>
                 </viewController>
